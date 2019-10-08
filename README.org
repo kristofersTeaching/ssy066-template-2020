@@ -1,0 +1,117 @@
+* Introduction
+ Welcome to the programming introduction in the SSY066 course.  This
+introduction will give you a good refresh on how to program as well as
+introduce some new concepts. One idea is that by trying to implement
+the things we talk about in the course, like operations and graphs,
+you will in a better way understand the concepts. To model something
+using programming as well as implementing algorithms to analyze your
+models will help you understand better and learn more.
+* Git intro
+In order to manage this assignment we will use [[https://git-scm.com/][git]] and host everything
+on [[http://www.github.com][github]]. The first step is to install git on your computers.
+
+Windows users can follow instructions [[https://www.atlassian.com/git/tutorials/install-git#windows][here.]] And Mac users can
+follow instructions [[https://www.atlassian.com/git/tutorials/install-git#mac-os-x][here]].
+To use git, you can either use the command line version or GUI based
+version -- we recommend [[https://www.syntevo.com/smartgit/][SmartGit]] if you prefer to use a GUI. 
+
+To grasp basic concepts in GIT follow the tutorial [[https://try.github.io/][here]].
+For this course you will use the following commands:
+- ~git clone <URL to your repository>~
+Use this command the first time you clone a copy from the server to
+you computer.
+- ~git commit <files you want to commit> -m "your commit message"~
+Once you have done changes and want to push them to the server, first
+make a commit followed by a ~git push~.
+- ~git push~ This will send the updated files from your local copy to
+  the server.
+
+A more comprehensive cheatsheet is found [[https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf][here]].
+* Assignment 
+The first thing we will do is to implement some data structures.
+After you have imported the maven project, study the files in the src
+/main/java/ssy066.part1 folder.
+
+First we will work with the State class.  Your task is to implement
+the methods that are not implemented. To know what to implement, we
+will use a Test-driven development approach
+http://en.wikipedia.org/wiki/Test-driven_development . I have written
+the tests already , so your task is to trying to understand what the
+requirements are on your test defined in each test. The tests are
+located in src /test/java/ssy066/ part1 . Start with Test1_States
+.Open it.
+
+The task is to write code that makes the unit tests in this file to
+pass (and to compile). To run the test, either right-click on the file
+in the package explorer and pick run as and then JUnit test, or click
+on the green play above. The result of the test is shown in the JUnit
+window (expand the test in that windo w to see all tests). If you can
+not see the JUnit window, open it via Window menu / Show view / other
+...  And then java / JUnit in the popup window. Your code should be
+located in src/main/java/ ssyo66/ part1/. So you should not change
+this file except if you need to import classes above or if the test
+description state it. When you implement, an important help is to look
+at http://docs.oracle.com/javase/8/docs/api/ .  The unit test is a
+piece of code that specifies what your code should do. In this file,
+usually I define some objects that I use to call your methods. Then
+I'm checking if these methods return the correct things by checking if
+a boolean expression hold. For example if a m ethod should return 1 I
+will check that by assertTrue(answer == 1). If it should not be equal
+to 1 i will write assertFalse(answer == 1). So by reading through the
+test carefully, the test specify the functionality of your code. Also
+remember that you can comment out some of the assertTrue / assertFalse
+lines to easier pin point what makes the test fail. You can also
+double-click on the test in the JUnit window.
+
+Solve each test.
+
+#+html: <p align="center"><img src="img/tests.jpg" /></p>
+
+
+When you have completed Test1, start with Test2_Operation. Here we will
+develop the parts of the operation.
+
+#+html: <p align="center"><img src="img/action.jpg" /></p>
+
+#+html: <p align="center"><img src="img/preds.jpg" /></p>
+
+
+After that is completed, you will use the operations to generate and
+optimize graphs in test3 and test4. By then, you should be
+comfortable to read the instruction in the code and study the existing
+code to figure out what to do.
+
+[[img/ops.jpg]]
+
+* Workflow
+- I recommend to use eclise, intellij or Netbeans
+  - Download [[https://www.jetbrains.com/idea/download/#section=windows][Intellij]]
+  - Download [[http://www.eclipse.org/downloads/][Eclipse]]
+    - In the section Package Solutions, download Eclipse IDE for Java Developers for your platform. (Not the Standard Edition or the EE java developer’s edition)
+    - Eclipse is downloaded as a zip file. Extract the file somewhere you remember or in Application if you are on mac
+- If you do not have java development kit on your computer:
+  - Go to: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+  - Download Java Platform (JDK) (version 8)
+  - Install JDK
+- Clone your group repository
+  - In IntelliJ, choose File->Open
+  - In eclipse, choose File–>Import...
+     - In the import popup, expand “Maven” with the small arrow in the folder list. (If you do not have Maven in the list, you probably downloaded the wrong eclipse version)
+     - Mark “Existing Maven Projects” and click “Next” in the bottom of the popup
+     - Next to the Root Directory, click “Browse...”
+     - Navigate to your workspace folder and mark the SSY066 repository and click the “OK” button
+     - Click “Finish”
+- You are good to go!
+** Submitting the assignment 
+To submit the assignment commit and push all your files to the
+repository. To do this:
+1.  Make sure you have the latest changes from git using the command
+   ~git pull~
+2. Then commit all your new changes using:
+     #+BEGIN_SRC shell
+git commit -a -m "your commit message"
+     #+END_SRC
+3. Finally, push your changes to the server. 
+   ~git push~
+
+Once the assignment is graded you can find the report under the branch "gh-pages", the file is called surefire-report.html. You can view the Html file using the following [[https://htmlpreview.github.io/][link]]. Use the URL of your report in the mentioned link to see the report.
