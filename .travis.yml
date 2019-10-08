@@ -1,0 +1,35 @@
+language: java
+jdk: oraclejdk8
+sudo: false
+branches:
+  only:
+  - master
+before_install:
+- rm -r src/test
+- git clone --depth 1 --branch test2019 git@github.com:kristofersTeaching/ssy066.git
+- cp -r ssy066/src/test ./src/
+- find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
+script: mvn surefire-report:report
+after_success:
+- git checkout master
+- mkdir Reports
+- cp ./target/site/surefire-report.html ./Reports/
+deploy:
+ provider: pages
+ github-token: $GITHUB_TOKEN 
+ skip-cleanup: true
+ keep-history: true
+ verbose: true
+ local_dir: Reports/
+ on:
+   branch: master
+notifications:
+  slack: ssy066:cj4ylbDC0eDQHQ7oVLvl1lxk
+  on_success: always
+  on_failure: never
+  template:
+  - 'Build result %{result} at %{repository} (%{commit}). '
+  - 'Build details: %{build_url}'
+env:
+  global:
+    secure: lbyLZDn7F44HugNVa540dyLs512zGHNQBrDhGFjgeKMDJM6ufCkd8X+WxWOWPhnw961ydU3Nc1vXPGGAYB1i247xYUXHwwRSQtmeNL4FhOk8JtVkqfPjS+4EvYBoNjdAQdo8h9GJq2i1lUM5s8VMQx66DvMxhUGqNHe6sq9meeYPET5729DfJxWo/9vk2Uv+j77KMhB6aGBLVze9YzDQs7mfFN27dlqj+5iLhn7MSN0kt/NJN6PsN4rb643BfsRTJVnSOj59X/emfDSVMqYgGSCzjL1TqUuc75caxWnlaun4rCetNzuWPp30lC+JfOG5BnNX8AOBlLWIkkBcbv3PDI5I6PtiSZ56WajV/P9dX9hl4Buogtr+jyBEfB+tfHTmXTUp0As8mYd6DZClt4zEqvNxHXGQ7y8MgETkEhF/lRmdTBkPVQxoHRjBxZJO0ysgSvT6yhKnPwclRJw+rMsV/xGBXBBgbKdq59Wu5u7mEXdcpibhsdKVNFNhuDVAcjdfFCxZfxxAs9wQyKnpmiZQowWNMgq0TCD9hlJzNM9ur/54V50GSNEyF5xfSz13G61180uXG6fE+0iviSu07gkeUYXsaYhSpH6+qWJ0AZzN3mKgH9Dy72EaEPHkIFWkWWlVT8AmgkfnqX01z/k3CXTJbH5HbqCcjeo3l+v9A3awY2M=
