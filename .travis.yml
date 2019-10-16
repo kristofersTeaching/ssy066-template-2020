@@ -1,5 +1,5 @@
 language: java
-jdk: oraclejdk8
+jdk: oraclejdk9
 sudo: false
 branches:
   only:
@@ -15,14 +15,14 @@ after_success:
 - mkdir Reports
 - cp ./target/site/surefire-report.html ./Reports/
 deploy:
- provider: pages
+ provider: releases
  github-token: $GITHUB_TOKEN 
  skip-cleanup: true
  keep-history: true
  verbose: true
  local_dir: Reports/
  on:
-   branch: master
+   tags: true
 notifications:
   slack: ssy066:cj4ylbDC0eDQHQ7oVLvl1lxk
   on_success: always
