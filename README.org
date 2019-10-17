@@ -105,13 +105,20 @@ code to figure out what to do.
 ** Submitting the assignment 
 To submit the assignment commit and push all your files to the
 repository. To do this:
-1.  Make sure you have the latest changes from git using the command
-   ~git pull~
+1. Make sure you have the latest changes from git using the command
+   #+begin_src shell
+  git pull
+   #+end_src
 2. Then commit all your new changes using:
      #+BEGIN_SRC shell
 git commit -a -m "your commit message"
      #+END_SRC
-3. Finally, push your changes to the server. 
-   ~git push~
+3. Add a tag to your commit with a submission number: vX, where x is an integer, and a message if you like
+#+begin_src shell
+git tag -a v1 -m "Assignment1 "
+#+end_src
+4. Finally, push your tagged changes to the server.
+   ~git push origin master --tags~
+** Checking your reports
+Once you have submitted your assignment using the above described procedure
 
-Once the assignment is graded you can find the report under the branch "gh-pages", the file is called surefire-report.html. You can view the Html file using the following [[https://htmlpreview.github.io/][link]]. Use the URL of your report in the mentioned link to see the report.
