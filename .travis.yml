@@ -1,5 +1,5 @@
 language: java
-jdk: oraclejdk9
+jdk:openjdk8
 sudo: false
 branches:
   only:
@@ -9,7 +9,7 @@ before_install:
 - git clone --depth 1 --branch test2019 git@github.com:kristofersTeaching/ssy066.git
 - cp -r ssy066/src/test ./src/
 - find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
-script: travis_wait 10 mvn surefire-report:report
+script: mvn surefire-report:report
 after_success:
 - git checkout master
 - mkdir Reports
