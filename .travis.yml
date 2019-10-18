@@ -18,7 +18,9 @@ deploy:
   provider: releases
   api_key: $API_KEY
   file: "./Reports/surefire-report.html"
-skip_cleanup: true
+  skip_cleanup: true
+  on:
+    tags: false
 env:
   global:
     secure: G/l6XbyDUe5mkvMg4L1fATd2Jc0xqsh5sA6yKv8XlbB7LZhcJVLp9zbTF5LuksuXW82VBF2Os32O87LXHwoNc3tWrVz6HLRBypZ1wvPOG5d3hlPmTWTcydRYOHInO6tlZisfuKT7Yw2nl92TioZ+vA89TsLjzSz2l9waz8Vc642esy1hz4ybkBOMahrBDo/0OGGdKbOrCJKBLJEIBGvTsKkfCUdR3tY2QKBvJeZHOrdpsLPzIau/Z4pzJpaK1IlORbmbdYYyAkCHwx1xpMj0EjFH0y6Onra1THgulICh1d01SiPLqz/1/NxZggPVr90duALHnyY5vFek3eUMAeTyl3zQk0Fmr594Syz0iuYOVuzh1s11T/A/dIIKypUVvEkGkjHlEsNWinxpjKvKXoHbZE6+5Chd+VbfSi1C3cHFWdSaXtAbk9rK2CVWIsgzfk7dgyg2OkVbS+V/TkYNWSpc/H1dBfUwcvaYin/XrNehixe8EJoDDxDtRPPOvfJt4xfQNU8UILG8h3T4Ehd4NaI1FuynXkv4d87eCANphc/qovB2mXEoU8PihvoAMlz3sw269Re9uRgSTBiBHcJ1wklZS/3TSHZKEmJZI8BizUHEOprStQcE+TjurDqKa6wbVh/sUFjfWjYlPZta48nnMhXGWktJfsw6zUUFEgkea3AaAD4=
