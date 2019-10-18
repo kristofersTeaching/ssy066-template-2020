@@ -120,5 +120,5 @@ git tag -a v1 -m "Assignment1 "
 4. Finally, push your tagged changes to the server.
    ~git push origin master --tags~
 ** Checking your reports
-Once you have submitted your assignment using the above described procedure
+Once you have submitted your assignment using the above described procedure you should be able to access the report under the *Releases* tab.
 
